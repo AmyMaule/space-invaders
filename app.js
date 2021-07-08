@@ -127,12 +127,3 @@ function moveController() {
     setTimeout(moveController, 30);
 }
 moveController();
-
-
-// during interview:
-// spaceship can shoot enemies by pressing space
-// enemies can shoot me - one shot at a time, choose random enemy based on who is close to me?
-// if no enemy is hit, the shot goes off the top of the screen
-// if an enemy is hit, then he explodes and the shot disappears
-// there are different types of enemies that are worth different points
-// game over
