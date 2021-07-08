@@ -28,19 +28,19 @@ function createInvaders() {
         invader.dataset.id = i;
 
         if (i < invadersPerRow) {
-            invader.src = "./aliens/open-squid.png";
+            invader.src = "./images/open-squid.png";
             squid.appendChild(invader);
         } else if (i < invadersPerRow * 2) {
-            invader.src = "./aliens/open-crab.png";
+            invader.src = "./images/open-crab.png";
             crab.appendChild(invader);
         }  else if (i < invadersPerRow * 3) {
-            invader.src = "./aliens/open-crab.png";
+            invader.src = "./images/open-crab.png";
             crabLower.appendChild(invader);
         } else if (i < invadersPerRow * 4) {
-            invader.src = "./aliens/open-octopus.png";
+            invader.src = "./images/open-octopus.png";
             octopus.appendChild(invader);
         }  else {
-            invader.src = "./aliens/open-octopus.png";
+            invader.src = "./images/open-octopus.png";
             octopusLower.appendChild(invader);
         }
     }
@@ -54,7 +54,7 @@ function animate(currentTime) {
     window.requestAnimationFrame(animate);
     // msSinceRender is the number of milliseconds since the last render
     const msSinceRender = currentTime - lastRender;
-    // the aliens only need to update once per second, or every 1000 ms
+    // the invaders only need to update every 550 ms
     if (msSinceRender < 550) return;
     lastRender = currentTime;
     // The invader images are called open-xxx and closed-xxx so the state variable updates to "open" or "closed" with each render which allows the images to be switches below
@@ -76,11 +76,11 @@ function animate(currentTime) {
     // The state variable above is used to change the images on each render
     invaders.forEach(invader => {
         if (parseInt(invader.dataset.id) < 11) {
-            invader.src = `./aliens/${state}-squid.png`;
+            invader.src = `./images/${state}-squid.png`;
         } else if (parseInt(invader.dataset.id) < 33) {
-            invader.src = `./aliens/${state}-crab.png`;
+            invader.src = `./images/${state}-crab.png`;
         } else if (parseInt(invader.dataset.id) < 55) {
-            invader.src = `./aliens/${state}-octopus.png`;
+            invader.src = `./images/${state}-octopus.png`;
         }
     });
     if (drop) {
