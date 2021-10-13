@@ -28,21 +28,36 @@ body {
 }
 
 .score-lives-container {
-    height: 50px;
-    width: 1000px;
-    display: flex;
+  margin-top: 20px;
+  height: 50px;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .score {
-    margin-left: 9rem;
-    margin-right: auto;
     font-size: 1.5rem;
 }
 
+.lives-container {
+  display: flex;
+  align-items: center;
+}
+
+.life-container {
+  width: 150px;
+}
+
 .lives {
-    margin-left: auto;
-    margin-right: 8rem;
     font-size: 1.5rem;
+    min-width: 200px;
+}
+
+.life {
+  height: 24px;
+  width: 40px;
+  margin-left: 8px;
 }
 
 .game-container-inner {
@@ -51,11 +66,14 @@ body {
 }
 
 .invaders {
-    height: 32px;
-    padding: 0;
-    margin-bottom: 0.6rem;
-    position: relative;
-    top: 0px;
+  height: 32px;
+  padding: 0;
+  margin-bottom: 3px;
+  position: relative;
+  top: 0px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .invader {
@@ -66,10 +84,10 @@ body {
 }
 
 .controller {
-    height: 26px;
-    width: 45px;
-    position: relative;
-    top: 232px;
+  height: 26px;
+  width: 45px;
+  position: relative;
+  top: 228px;
 }
 
 /* the selection and moz-selection selectors stop the controller from being highlighted when clicking on the page */
@@ -79,4 +97,39 @@ body {
 
 ::selection {
     background-color: transparent;
+}
+
+.bullet {
+    background-color: white;
+    width: 3px;
+    height: 14px;
+    position: absolute;
+}
+
+.pop {
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  height: 24px;
+  width: 36px;
+}
+
+.invbullet {
+  position: absolute;
+  width: 10px;
+  height: 15px;
+}
+
+.game-over-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.game-over {
+  font-size: 1.8rem;
+  position: absolute;
+}
+
+.hide {
+  display: none;
 }
