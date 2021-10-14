@@ -61,8 +61,13 @@ body {
 }
 
 .game-container-inner {
-    margin-top: 4rem;
-    display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  /* display: block; */
+  width: 1000px;
 }
 
 .invaders {
@@ -100,10 +105,11 @@ body {
 }
 
 .bullet {
-    background-color: white;
-    width: 3px;
-    height: 14px;
-    position: absolute;
+  background-color: white;
+  width: 3px;
+  height: 14px;
+  position: relative;
+  z-index: -1;
 }
 
 .pop {

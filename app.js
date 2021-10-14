@@ -181,21 +181,19 @@ function moveController() {
 moveController();
 
 function createBullet(e) {
-  if (keyPosition[32]) {
-    // Can't access bullet directly as it hasn't been declared, so check for an element with the class of bullet to make sure only one bullet is fired at once - also make sure no bullet is fired if the game has ended
-    if (document.querySelector(".bullet") || isGameOver) return;
-    let bullet = document.createElement("div");
-    bullet.classList.add("bullet");
-    gameContainer.appendChild(bullet);
-    bullet.style.left = controller.offsetLeft + 22.5 - 1.5 + "px";
-    bullet.style.bottom = "100px";
-    moveBullet(bullet);
-  }
+  // Can't access bullet directly as it hasn't been declared, so check for an element with the class of bullet to make sure only one bullet is fired at once - also make sure no bullet is fired if the game has ended
+  if (document.querySelector(".bullet") || isGameOver) return;
+  let bullet = document.createElement("div");
+  bullet.classList.add("bullet");
+  gameContainer.appendChild(bullet);
+  bullet.style.left = leftPosition + "px";
+  bullet.style.bottom = "-200px";
+  moveBullet(bullet);
 }
 
 function moveBullet(bullet) {
   let bulletPath = setInterval(() => {
-    if (parseInt(bullet.style.bottom) > 530) {
+    if (parseInt(bullet.style.bottom) > 200) {
     clearInterval(bulletPath);
     bullet.remove();
     } else {
