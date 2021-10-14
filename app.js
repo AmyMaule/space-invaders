@@ -156,7 +156,11 @@ function moveInvaders(currentLeft) {
 
 // keyPosition is an object that will store the keyCode of any key pressed as a key, with the value being true if the key is currently pressed, or false if it isn't. This stops the lag produced using the "keydown" event listener
 let keyPosition = {};
-window.addEventListener("keydown", e => keyPosition[e.keyCode] = true);
+window.addEventListener("keydown", e => {
+  keyPosition[e.keyCode] = true;
+  // if the key pressed is the spacebar, create a new bullet
+  if (e.keyCode === 32) createBullet();
+});
 window.addEventListener("keyup", e => keyPosition[e.keyCode] = false);
 
 // the moveController function takes in the keyCode of the key being pressed to determine whether to move left or right
@@ -188,7 +192,6 @@ function createBullet(e) {
     moveBullet(bullet);
   }
 }
-window.addEventListener("keydown", createBullet);
 
 function moveBullet(bullet) {
   let bulletPath = setInterval(() => {
