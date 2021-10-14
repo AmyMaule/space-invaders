@@ -89,17 +89,18 @@ let animateInvaders;
 function animate(currentTime) {
   // first requestAnimationFrame to recursively call the current function, whether or not the animation needs to be updated
   animateInvaders = window.requestAnimationFrame(animate);
+  // currentTop gets the current CSS top value of the 5 rows of invaders
+  let currentTop = window.getComputedStyle(invadersDiv[0]).top;
   // msSinceRender is the number of milliseconds since the last render
   const msSinceRender = currentTime - lastRender;
-  // the invaders only need to update every 550 ms
-  if (msSinceRender < 550) return;
+  // the invaders only need to update every 500 ms for the first row, then speed increases on each drop
+  if (msSinceRender < 500 - parseInt(currentTop)) return;
   lastRender = currentTime;
   // The invader images are called open-xxx and closed-xxx so the state variable updates to "open" or "closed" with each render which allows the images to be switches below
   state == "open" ? state = "closed" : state = "open";
   // currentLeft gets the current margin-left value of the 5 rows of invaders
   let currentLeft = window.getComputedStyle(invadersDiv[0]).marginLeft;
-  // currentTop gets the current CSS top value of the 5 rows of invaders
-  let currentTop = window.getComputedStyle(invadersDiv[0]).top;
+
   // Get the last invader in the currentInvaders array to check how low down it is
   let lastRow = getLastInvader();
   // For XL screens, the invaders have 800px to move around in, from a margin-left value of -400px to 400px, so this changes their direction at each edge
@@ -126,7 +127,6 @@ function animate(currentTime) {
   if (drop) {
     // lastRow increases by 25 for each row, so when (eg) the bottom row is eliminated, lastRow is 25. If all rows are eliminated but the top row, lastRow is 100
     currentTop = Number(currentTop.slice(0, -2)) + 17.5;
-    console.log(currentTop);
     invadersDiv.forEach(row => row.style.top = currentTop + "px");
     // lastRow increases by 25 for each row, so when (eg) the bottom row is eliminated, lastRow is 25. If all rows are eliminated but the top row, lastRow is 100
     if (currentTop >= 225 + lastRow) {
@@ -199,7 +199,7 @@ function moveBullet(bullet) {
       bullet.style.bottom = parseInt(bullet.style.bottom) + 10 + "px";
     }
     detectCollision(bullet, bulletPath);
-  }, 35)
+  }, 25)
 }
 
 function detectCollision(bullet, bulletPath) {
@@ -279,7 +279,7 @@ function moveInvaderBullet(invBullet) {
         createInvaderBullet();
       }, 2500)
     }
-  }, 30)
+  }, 25)
 }
 
 function gameOver() {
