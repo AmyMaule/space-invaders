@@ -14,7 +14,7 @@ using the arrow keys to move left and right, plus the spacebar to shoot.
 * JavaScript
 <br>
 
-## Demo & Screenshots
+## Gameplay screenshots
 <div align="center">
   <img src="./images/space-1.png" width="85%">
   <br><br>
