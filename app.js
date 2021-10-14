@@ -184,7 +184,7 @@ function createBullet(e) {
     bullet.classList.add("bullet");
     gameContainer.appendChild(bullet);
     bullet.style.left = controller.offsetLeft + 22.5 - 1.5 + "px";
-    bullet.style.bottom = "112px";
+    bullet.style.bottom = "100px";
     moveBullet(bullet);
   }
 }
